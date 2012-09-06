@@ -6,11 +6,11 @@ comments: true
 sharing: true
 footer: true
 ---
-#### Some useful webpages for vim:
+### Some useful webpages for vim:
 
 [Configuring Vim right](http://items.sjbach.com/319/configuring-vim-right)
 
-#### My configuration:
+### My configuration:
 
 ``` sh
 syntax on
