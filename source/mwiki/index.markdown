@@ -2,9 +2,10 @@
 layout: page
 title: "Moe's Wiki"
 date: 2012-09-06 11:30
-comments: true
+sidebar: false
+comments: false
 sharing: true
-footer: true
+footer: false
 ---
 ### Basic Linux Tips
 - [How to use Vim?](/mwiki/vim) \(I am a junior. :\) \)

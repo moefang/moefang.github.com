@@ -2,9 +2,10 @@
 layout: page
 title: "Introduction to Vim"
 date: 2012-09-06 14:22
-comments: true
+sidebar: false
+comments: false
 sharing: true
-footer: true
+footer: false
 ---
 ### Some useful webpages for vim:
 
