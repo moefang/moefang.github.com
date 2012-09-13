@@ -10,3 +10,4 @@ footer: false
 ### Basic Linux Tips
 - [How to use Vim?](/mwiki/vim) \(I am a junior. :\) \)
 - [How to use UTS:FEIT Computing Linux Cluster?](/mwiki/computingcluster)
+- [How to use Git?](/mwiki/git)
