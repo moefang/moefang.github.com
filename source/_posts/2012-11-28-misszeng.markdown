@@ -3,7 +3,7 @@ layout: post
 title: "There is no try."
 date: 2012-11-28 02:25
 comments: true
-publised: false
+published: false
 categories: 
 ---
 > "Do or Do not. There is no try."  --Yoda.
