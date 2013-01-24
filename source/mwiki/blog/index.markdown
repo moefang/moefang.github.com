@@ -29,7 +29,7 @@ rake generate
 rake preview
 
 ```
-Then go to the http://localhost:4000 to check the new blogs
+Then go to the [http://localhost:4000](http://localhost:4000) to check the new blogs
 
 Update for online
 ``` sh
