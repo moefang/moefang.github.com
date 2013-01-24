@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Moe's Code]]></title>
+  <link href="http://moefang.github.com/atom.xml" rel="self"/>
+  <link href="http://moefang.github.com/"/>
+  <updated>2013-01-24T13:53:16+11:00</updated>
+  <id>http://moefang.github.com/</id>
+  <author>
+    <name><![CDATA[Moe]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Basic text processing commands in Linux]]></title>
+    <link href="http://moefang.github.com/blog/common-text-processing-in-linux/"/>
+    <updated>2013-01-09T15:32:00+11:00</updated>
+    <id>http://moefang.github.com/blog/common-text-processing-in-linux</id>
+    <content type="html"><![CDATA[<p>Here are some commonly used bash commands for text processing in Linux.</p>
+
+<!-- more -->
+
+
+<h2>sort</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>head rand-temp.degree
+</span><span class='line'>189128,10
+</span><span class='line'>1036499,11
+</span><span class='line'>628036,14
+</span><span class='line'>484637,4
+</span><span class='line'>49461,13
+</span><span class='line'>1043626,4
+</span><span class='line'>278396,1
+</span><span class='line'>1386637,3
+</span><span class='line'>1292472,1
+</span><span class='line'>665815,1
+</span><span class='line'>sort -n -k 2 -t , rand-temp.degree &gt; rand-temp-sort.degree
+</span><span class='line'>head rand-temp-sort.degree
+</span><span class='line'>1000326,1
+</span><span class='line'>1003130,1
+</span><span class='line'>1003489,1
+</span><span class='line'>1003505,1
+</span><span class='line'>1003527,1
+</span><span class='line'>1003624,1
+</span><span class='line'>1004263,1
+</span><span class='line'>1004566,1
+</span><span class='line'>1004601,1
+</span><span class='line'>1004606,1
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Use virtualenv to creat isolated Python environments]]></title>
+    <link href="http://moefang.github.com/blog/use-virtualenv-to-creat-isolated-python-environments/"/>
+    <updated>2013-01-07T10:18:00+11:00</updated>
+    <id>http://moefang.github.com/blog/use-virtualenv-to-creat-isolated-python-environments</id>
+    <content type="html"><![CDATA[<p><code>virtualenv</code> can create an Python enviroment that has its own installation directories, that any change in its libraries or the version of those libraries
+can not break other applications. Also, it can install packages on a shared host, where you don&#8217;t have any permission for installing packages into the
+global site-packages directry.</p>
+
+<!-- more -->
+
+
+<h2>Install and build an environment</h2>
+
+<p>This is the webpage of <a href="http://www.virtualenv.org" title="virtualenv">virtualenv</a>.</p>
+
+<p>There are many ways to install virtualenv. I download the source code <code>virtualenv-1.8.4.tar.gz</code> and then
+extract it and then use</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>python virtualenv.py ~/Sci
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If I want to build with system site packages from <code>/usr/lib/python2.7/site-packages</code>, I
+use</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>python virtualenv.py --distribute ~/ENV
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Activate script</h2>
+
+<p>On Posix systems I go to the virtualenv folder and then use</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span><span class="nb">source </span>bin/activate
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Install other Python packages</h2>
+
+<p>I use pip. For example, to install <a href="http://scikit-learn.org" title="scikit-learn">scikit-learn</a>,
+I use</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>pip install -U scikit-learn
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The <code>-U</code> or <code>--upgrade</code> flag will automatically upgrade
+a package to its most recent available version.</p>
+
+<p>However, I use above command directly then I&#8217;m failed. Because my enviroment lacks the supported
+packages for scikit-learn. I get more information from its website, <a href="http://scikit-learn.org/stable/install.html#installing-from-source">its installing
+section</a>, I use (by executing with root privileges.)</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo apt-get install python-dev python-numpy python-numpy-dev python-setuptools
+</span><span class='line'>python-numpy-dev python-scipy libatlas-dev g++
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Test]]></title>
+    <link href="http://moefang.github.com/blog/test/"/>
+    <updated>2012-09-06T15:07:00+10:00</updated>
+    <id>http://moefang.github.com/blog/test</id>
+    <content type="html"><![CDATA[<blockquote><p>&#8220;Stay hungry.&#8221;</p></blockquote>
+]]></content>
+  </entry>
+  
+</feed>

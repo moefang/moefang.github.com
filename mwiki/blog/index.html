@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Moe's Code</title>
+  <title>blog - Moe's Code</title>
   <meta name="author" content="Moe">
 
   
-  <meta name="description" content="Here are some commonly used bash commands for text processing in Linux. ">
+  <meta name="description" content="Blog Jan 8th, 2013 My blog use the Octopress, a blogging framework for hackers. For more infomation, it can be found in its website. Create new blog &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://moefang.github.com/">
+  <link rel="canonical" href="http://moefang.github.com/mwiki/blog/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -63,19 +63,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article role="article">
   
-  
-  
-    <article>
-      
   <header>
-    
-      <h1 class="entry-title"><a href="/blog/common-text-processing-in-linux/">Basic Text Processing Commands in Linux</a></h1>
-    
-    
-      <p class="meta">
-        
+    <h1 class="entry-title">Blog</h1>
+    <p class="meta">
 
 
 
@@ -87,38 +80,69 @@
   
 
 
-<time datetime="2013-01-09T15:32:00+11:00" pubdate data-updated="true">Jan 9<span>th</span>, 2013</time>
-        
-         | <a href="/blog/common-text-processing-in-linux/#disqus_thread">Comments</a>
-        
-      </p>
-    
+<time datetime="2013-01-08T11:59:00+11:00" pubdate data-updated="true">Jan 8<span>th</span>, 2013</time></p>
   </header>
-
-
-  <div class="entry-content"><p>Here are some commonly used bash commands for text processing in Linux.</p>
-
-</div>
   
+  <p>My blog use the <a href="http://octopress.org">Octopress</a>, a blogging framework for hackers. For more infomation, it can be found in its website.</p>
+
+<h2>Create new blog</h2>
+
+<p>Blog post</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>rake new_post<span class="o">[</span><span class="s2">&quot;title&quot;</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Blog page</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>rake new_page<span class="o">[</span>mwiki/blog<span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Deploy website</h2>
+
+<p>Update in local</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>rake generate
+</span><span class='line'>rake preview
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then go to the <a href="http://localhost:4000">http://localhost:4000</a> to check the new blogs</p>
+
+<p>Update for online</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>rake setup_github_pages
+</span><span class='line'>rake generate
+</span><span class='line'>rake deploy
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Update the source</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>git add .
+</span><span class='line'>git commit -m <span class="s1">&#39;your message&#39;</span>
+</span><span class='line'>git push origin <span class="nb">source</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
   
     <footer>
-      <a rel="full-article" href="/blog/common-text-processing-in-linux/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/use-virtualenv-to-creat-isolated-python-environments/">Use Virtualenv to Creat Isolated Python Environments</a></h1>
-    
-    
       <p class="meta">
         
+        
 
 
 
@@ -130,74 +154,25 @@
   
 
 
-<time datetime="2013-01-07T10:18:00+11:00" pubdate data-updated="true">Jan 7<span>th</span>, 2013</time>
-        
-         | <a href="/blog/use-virtualenv-to-creat-isolated-python-environments/#disqus_thread">Comments</a>
+<time datetime="2013-01-08T11:59:00+11:00" pubdate data-updated="true">Jan 8<span>th</span>, 2013</time>
         
       </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><code>virtualenv</code> can create an Python enviroment that has its own installation directories, that any change in its libraries or the version of those libraries
-can not break other applications. Also, it can install packages on a shared host, where you don&#8217;t have any permission for installing packages into the
-global site-packages directry.</p>
-
+      
+        <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://moefang.github.com/mwiki/blog/index.html" data-via="" data-counturl="http://moefang.github.com/mwiki/blog/index.html" >Tweet</a>
+  
+  
+  
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/use-virtualenv-to-creat-isolated-python-environments/">Read on &rarr;</a>
+
+      
     </footer>
   
+</article>
 
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/test/">Test</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-06T15:07:00+10:00" pubdate data-updated="true">Sep 6<span>th</span>, 2012</time>
-        
-         | <a href="/blog/test/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><blockquote><p>&#8220;Stay hungry.&#8221;</p></blockquote>
 </div>
-  
-  
 
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
 <aside class="sidebar">
   
     <section>
@@ -232,6 +207,7 @@ global site-packages directry.</p>
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -241,19 +217,6 @@ global site-packages directry.</p>
 
 </footer>
   
-
-<script type="text/javascript">
-      var disqus_shortname = 'code2alphamoe';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
 
 
 

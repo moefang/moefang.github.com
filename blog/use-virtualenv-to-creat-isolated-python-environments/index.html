@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Use virtualenv to creat isolated Python environments - Moe's Code</title>
+  <meta name="author" content="Moe">
+
+  
+  <meta name="description" content="virtualenv can create an Python enviroment that has its own installation directories, that any change in its libraries or the version of those &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://moefang.github.com/blog/use-virtualenv-to-creat-isolated-python-environments/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Moe's Code" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Moe's Code</a></h1>
+  
+    <h2>About programming, code, tips and tricks.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:moefang.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/mwiki">Mwiki</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Use Virtualenv to Creat Isolated Python Environments</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-07T10:18:00+11:00" pubdate data-updated="true">Jan 7<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><code>virtualenv</code> can create an Python enviroment that has its own installation directories, that any change in its libraries or the version of those libraries
+can not break other applications. Also, it can install packages on a shared host, where you don&#8217;t have any permission for installing packages into the
+global site-packages directry.</p>
+
+<!-- more -->
+
+
+<h2>Install and build an environment</h2>
+
+<p>This is the webpage of <a href="http://www.virtualenv.org" title="virtualenv">virtualenv</a>.</p>
+
+<p>There are many ways to install virtualenv. I download the source code <code>virtualenv-1.8.4.tar.gz</code> and then
+extract it and then use</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>python virtualenv.py ~/Sci
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If I want to build with system site packages from <code>/usr/lib/python2.7/site-packages</code>, I
+use</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>python virtualenv.py --distribute ~/ENV
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Activate script</h2>
+
+<p>On Posix systems I go to the virtualenv folder and then use</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span><span class="nb">source </span>bin/activate
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Install other Python packages</h2>
+
+<p>I use pip. For example, to install <a href="http://scikit-learn.org" title="scikit-learn">scikit-learn</a>,
+I use</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>pip install -U scikit-learn
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The <code>-U</code> or <code>--upgrade</code> flag will automatically upgrade
+a package to its most recent available version.</p>
+
+<p>However, I use above command directly then I&#8217;m failed. Because my enviroment lacks the supported
+packages for scikit-learn. I get more information from its website, <a href="http://scikit-learn.org/stable/install.html#installing-from-source">its installing
+section</a>, I use (by executing with root privileges.)</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo apt-get install python-dev python-numpy python-numpy-dev python-setuptools
+</span><span class='line'>python-numpy-dev python-scipy libatlas-dev g++
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Moe</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-07T10:18:00+11:00" pubdate data-updated="true">Jan 7<span>th</span>, 2013</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://moefang.github.com/blog/use-virtualenv-to-creat-isolated-python-environments/" data-via="" data-counturl="http://moefang.github.com/blog/use-virtualenv-to-creat-isolated-python-environments/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/test/" title="Previous Post: Test">&laquo; Test</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/common-text-processing-in-linux/" title="Next Post: Basic text processing commands in Linux">Basic text processing commands in Linux &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/common-text-processing-in-linux/">Basic text processing commands in Linux</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/use-virtualenv-to-creat-isolated-python-environments/">Use virtualenv to creat isolated Python environments</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/test/">Test</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+<section>
+<h1>Visitors<h1>
+<div id="clustrmaps-widget"></div>
+<script type="text/javascript">var _clustrmaps = {'url' : 'http://code.alphamoe.com', 'user' : 1063215, 'server' : '4', 'id' : 'clustrmaps-widget', 'version' : 1, 'date' : '2012-11-29', 'lang' : 'en', 'corners' : 'square' };(function (){ var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'http://www4.clustrmaps.com/counter/map.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);})();</script><noscript><a href="http://www4.clustrmaps.com/user/0a610392f"><img src="http://www4.clustrmaps.com/stats/maps-no_clusters/code.alphamoe.com-thumb.jpg" alt="Locations of visitors to this page" /></a></noscript>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Moe -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'code2alphamoe';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://moefang.github.com/blog/use-virtualenv-to-creat-isolated-python-environments/';
+        var disqus_url = 'http://moefang.github.com/blog/use-virtualenv-to-creat-isolated-python-environments/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
